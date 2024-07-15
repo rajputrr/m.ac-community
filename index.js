@@ -1,21 +1,23 @@
+require("dotenv").config();
+
 const express = require("express");
 const { Server } = require("socket.io");
-var http = require("http");
+const http = require("http");
 const cors = require("cors");
 
 const app = express();
 app.use(
   cors({
-    origin: "https://macommunity.netlify.app", // Replace with your Netlify app URL
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST"],
   })
 );
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://macommunity.netlify.app", // Replace with your Netlify app URL
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST"],
   },
 });
