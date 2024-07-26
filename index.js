@@ -10,7 +10,7 @@ var server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://macommunity.netlify.app",
+    origin: "https://m-ac-community.onrender.com",
     methods: ["GET", "POST"],
   },
 });
